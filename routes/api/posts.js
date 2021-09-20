@@ -29,14 +29,14 @@ router.post(
 
       const currentUser = await User.findOne({ id: req.user.id });
 
-      const { caption, image } = req.body;
+      const { caption, image, name } = req.body;
 
       newPost = {};
 
       newPost.user = req.user.id;
       newPost.image = image;
       newPost.caption = caption;
-      newPost.name = currentUser.name;
+      newPost.name = name;
 
       post = new Post(newPost);
 

@@ -54,6 +54,7 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
           image:
             "https://shopifyapplicationbucket.s3.us-east-2.amazonaws.com/" +
             newFileName,
+          name: user.name,
         });
 
         axios.post("/api/posts/", body, config);

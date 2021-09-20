@@ -16,6 +16,7 @@ import { loadUser } from "./components/subcomponent/Login";
 import setAuthToken from "./utils/setAuthToken";
 
 import Register from "./components/Register";
+import Navbar from "./components/Navbar";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -29,6 +30,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <Fragment>
+          <Navbar />
           <div className="App">
             <Switch>
               <Route exact path="/" component={Login} />
