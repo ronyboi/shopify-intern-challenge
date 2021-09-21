@@ -5,8 +5,11 @@ import Image from "./subcomponent/Image";
 export default function Images({ user, uploadUpdate }) {
   const [update, setUpdate] = useState(true);
   const [images, setImages] = useState([]);
-  useEffect(async () => {
-    await axios.get("/api/posts").then((res) => setImages(res.data));
+  useEffect(() => {
+    async function fetchData() {
+      await axios.get("/api/posts").then((res) => setImages(res.data));
+    }
+    fetchData();
   }, [update, uploadUpdate]);
 
   const onDelete = () => {
@@ -17,10 +20,10 @@ export default function Images({ user, uploadUpdate }) {
     <div>
       {images.length > 0 ? (
         images.map((item) => (
-          <Image source={item} user={user} onDelete={onDelete} />
+          <Image source={item} user={user} onDelete={onDelete} key={item._id} />
         ))
       ) : (
-        <div>No images posted!</div>
+        <div className="no-image-login">No images posted!</div>
       )}
     </div>
   );

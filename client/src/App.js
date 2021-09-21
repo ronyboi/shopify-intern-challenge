@@ -1,10 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import { useEffect, Fragment } from "react";
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PropTypes from "prop-types";
 import Upload from "./components/Upload";
 import Login from "./components/Login";
 import store from "./store";

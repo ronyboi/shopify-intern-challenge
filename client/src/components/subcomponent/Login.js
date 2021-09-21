@@ -6,7 +6,6 @@ import {
   LOGOUT,
 } from "../types";
 import axios from "axios";
-import { useState } from "react";
 import setAuthToken from "../../utils/setAuthToken";
 
 export const loadUser = () => async (dispatch) => {

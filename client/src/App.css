@@ -56,3 +56,51 @@ img {
   justify-content: space-around;
   align-items: center;
 }
+
+.toolbar-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.no-image {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-image-login {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

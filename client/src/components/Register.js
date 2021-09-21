@@ -3,6 +3,9 @@ import { Redirect } from "react-router";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { register } from "./subcomponent/Register";
+import Images from "./Images";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -30,42 +33,69 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <h1>Sign Up</h1>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            onChange={(e) => onChange(e)}
-            //required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={(e) => onChange(e)}
-            //minLength="6"
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={(e) => onChange(e)}
-            //minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
-      </form>
-    </Fragment>
+    <div>
+      <Fragment>
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
+          <div className="form-group">
+            <TextField
+              label="Name"
+              variant="outlined"
+              value={name}
+              name="name"
+              onChange={(e) => onChange(e)}
+            />
+            {/* <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={(e) => onChange(e)}
+              //required
+            /> */}
+          </div>
+          <div className="form-group">
+            <TextField
+              label="Password"
+              variant="outlined"
+              type="password"
+              value={password}
+              name="password"
+              onChange={(e) => onChange(e)}
+            />
+            {/* <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => onChange(e)}
+              //minLength="6"
+            /> */}
+          </div>
+          <div className="form-group">
+            <TextField
+              label="Confirm Password"
+              variant="outlined"
+              type="password"
+              value={password2}
+              name="password2"
+              onChange={(e) => onChange(e)}
+            />
+            {/* <input
+              type="password"
+              placeholder="Confirm Password"
+              name="password2"
+              value={password2}
+              onChange={(e) => onChange(e)}
+              //minLength="6"
+            /> */}
+          </div>
+          <Button type="submit" value="Register" variant="contained">
+            Register
+          </Button>
+        </form>
+      </Fragment>
+      <Images />
+    </div>
   );
 };
 

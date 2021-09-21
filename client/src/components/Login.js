@@ -1,11 +1,11 @@
-import axios from "axios";
 import React, { useState } from "react";
-import setAuthToken from "../utils/setAuthToken";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { login } from "../components/subcomponent/Login";
 import { Redirect } from "react-router";
 import Images from "./Images";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -31,28 +31,43 @@ const Login = ({ login, isAuthenticated }) => {
   }
   return (
     <div>
-      <form onSubmit={(e) => handleClick(e)}>
+      <form onSubmit={(e) => handleClick(e)} className="form-login">
         <label>
-          Name:
-          <input
+          <TextField
+            label="Name"
+            variant="outlined"
+            value={name}
+            name="name"
+            onChange={(e) => onChange(e)}
+          />
+          {/* <input
             type="string"
             name="name"
             value={name}
             onChange={(e) => onChange(e)}
-          />
+          /> */}
         </label>
         <br />
         <label>
-          Password:
-          <input
+          <TextField
+            label="Password"
+            variant="outlined"
             type="password"
             value={password}
             name="password"
             onChange={(e) => onChange(e)}
           />
+          {/* <input
+            type="password"
+            value={password}
+            name="password"
+            onChange={(e) => onChange(e)}
+          /> */}
         </label>
         <br />
-        <input type="submit" value="Login" />
+        <Button variant="contained" type="submit" value="Login">
+          Login
+        </Button>
       </form>
       <Images />
     </div>

@@ -2,11 +2,13 @@ import React, { useRef, useEffect, useState } from "react";
 import S3 from "react-aws-s3";
 import axios from "axios";
 import { connect } from "react-redux";
-import setAuthToken from "../utils/setAuthToken";
 import { logout } from "./subcomponent/Login";
 import PropTypes from "prop-types";
-import Images from "./Images";
+
 import Image from "./subcomponent/Image";
+
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
   const fileInput = useRef();
@@ -19,8 +21,11 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
     setCaption(e.target.value);
   };
 
-  useEffect(async () => {
-    await axios.get("/api/posts").then((res) => setImages(res.data));
+  useEffect(() => {
+    async function fetchData() {
+      await axios.get("/api/posts").then((res) => setImages(res.data));
+    }
+    fetchData();
   }, [update]);
 
   const onDelete = () => {
@@ -67,13 +72,13 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleClick}>
+    <div className="upload">
+      <form onSubmit={handleClick} className="upload-form">
         <label>
           Upload file:
           <input type="file" ref={fileInput} />
         </label>
-        <label>
+        {/* <label>
           Caption:
           <input
             type="caption"
@@ -81,22 +86,34 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
             name="caption"
             onChange={(e) => onChange(e)}
           />
-        </label>
+        </label> */}
+        <TextField
+          id="standard-basic"
+          label="Caption"
+          variant="standard"
+          value={caption}
+          onChange={(e) => onChange(e)}
+        />
         <br />
-        <button type="submit" href="/images">
+        <Button variant="contained" type="submit">
+          Upload
+        </Button>
+        {/* <button type="submit" href="/images">
           Upload!
-        </button>
+        </button> */}
       </form>
-      <a onClick={logout} href="/">
-        Logout!
-      </a>
       <div>
         {images.length > 0 ? (
           images.map((item) => (
-            <Image source={item} user={user} onDelete={onDelete} />
+            <Image
+              source={item}
+              user={user}
+              onDelete={onDelete}
+              key={item._id}
+            />
           ))
         ) : (
-          <div>No images posted!</div>
+          <div className="no-image">No images posted!</div>
         )}
       </div>
     </div>
