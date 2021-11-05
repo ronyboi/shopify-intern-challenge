@@ -39,8 +39,6 @@ router.post(
 
       await post.save();
 
-      await currentUser.save();
-
       return res.json(post);
     } catch (err) {
       console.error(err.message);

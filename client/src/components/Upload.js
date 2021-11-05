@@ -76,17 +76,8 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
       <form onSubmit={handleClick} className="upload-form">
         <label>
           Upload file:
-          <input type="file" ref={fileInput} />
+          <input type="file" ref={fileInput} required={true} />
         </label>
-        {/* <label>
-          Caption:
-          <input
-            type="caption"
-            value={caption}
-            name="caption"
-            onChange={(e) => onChange(e)}
-          />
-        </label> */}
         <TextField
           id="standard-basic"
           label="Caption"
@@ -98,9 +89,6 @@ const Upload = ({ auth: { isAuthenticated, user }, logout }) => {
         <Button variant="contained" type="submit">
           Upload
         </Button>
-        {/* <button type="submit" href="/images">
-          Upload!
-        </button> */}
       </form>
       <div>
         {images.length > 0 ? (

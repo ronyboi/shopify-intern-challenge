@@ -9,20 +9,6 @@ import { Button } from "@mui/material";
 import { logout } from "./subcomponent/Login";
 
 const Navbar = ({ auth: { isAuthenticated, user }, logout }) => {
-  //   const [auth, setAuth] = React.useState(true);
-  //   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  //   const handleChange = (event) => {
-  //     setAuth(event.target.checked);
-  //   };
-
-  //   const handleMenu = (event) => {
-  //     setAnchorEl(event.currentTarget);
-  //   };
-
-  //   const handleClose = () => {
-  //     setAnchorEl(null);
-  //   };
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>

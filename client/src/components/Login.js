@@ -40,12 +40,6 @@ const Login = ({ login, isAuthenticated }) => {
             name="name"
             onChange={(e) => onChange(e)}
           />
-          {/* <input
-            type="string"
-            name="name"
-            value={name}
-            onChange={(e) => onChange(e)}
-          /> */}
         </label>
         <br />
         <label>
@@ -57,12 +51,6 @@ const Login = ({ login, isAuthenticated }) => {
             name="password"
             onChange={(e) => onChange(e)}
           />
-          {/* <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={(e) => onChange(e)}
-          /> */}
         </label>
         <br />
         <Button variant="contained" type="submit" value="Login">

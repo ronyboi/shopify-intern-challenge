@@ -24,7 +24,7 @@ router.post(
       });
     }
 
-    const { name, password, images } = req.body;
+    const { name, password } = req.body;
 
     try {
       let user = await User.findOne({ name });
@@ -37,7 +37,6 @@ router.post(
       user = new User({
         name,
         password,
-        images,
       });
 
       const salt = await bcrypt.genSalt(10);

@@ -44,14 +44,6 @@ const Register = ({ register, isAuthenticated }) => {
               name="name"
               onChange={(e) => onChange(e)}
             />
-            {/* <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={(e) => onChange(e)}
-              //required
-            /> */}
           </div>
           <div className="form-group">
             <TextField
@@ -62,14 +54,6 @@ const Register = ({ register, isAuthenticated }) => {
               name="password"
               onChange={(e) => onChange(e)}
             />
-            {/* <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={(e) => onChange(e)}
-              //minLength="6"
-            /> */}
           </div>
           <div className="form-group">
             <TextField
@@ -80,14 +64,6 @@ const Register = ({ register, isAuthenticated }) => {
               name="password2"
               onChange={(e) => onChange(e)}
             />
-            {/* <input
-              type="password"
-              placeholder="Confirm Password"
-              name="password2"
-              value={password2}
-              onChange={(e) => onChange(e)}
-              //minLength="6"
-            /> */}
           </div>
           <Button type="submit" value="Register" variant="contained">
             Register
