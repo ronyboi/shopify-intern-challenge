@@ -22,7 +22,6 @@ const Login = ({ login, isAuthenticated }) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log("hi");
     login(name, password);
   };
 
